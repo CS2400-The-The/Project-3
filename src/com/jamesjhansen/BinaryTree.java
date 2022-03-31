@@ -118,11 +118,11 @@ public class BinaryTree<T> implements BinaryTreeInterface<T>
     * prints (using post-order traversal) all nodes in the "whole" tree */
    public void postorderTraverse_callBinaryNodeMethod()
    {
-      if (getRootNode() == null)
+      if (root == null)
          throw new EmptyTreeException();
-      getRootNode().getLeftChild().postorderTraverse_binaryNodeMethod();
-      getRootNode().getRightChild().postorderTraverse_binaryNodeMethod();
-      System.out.println(getRootNode().getData());
+      root.getLeftChild().postorderTraverse_binaryNodeMethod();
+      root.getRightChild().postorderTraverse_binaryNodeMethod();
+      System.out.println(root.getData());
    }
    
    /** -------------------------------------------------------------------- */
@@ -156,7 +156,7 @@ public class BinaryTree<T> implements BinaryTreeInterface<T>
    @return  The height of the "whole" tree. */
    public int getHeight_callBinaryNodeMethod()
    {
-	   return 0;
+	   return root.getHeight_binaryNodeMethod();
    } // end getHeight_callBinaryNodeMethod
 
    /** -------------------------------------------------------------------- */
