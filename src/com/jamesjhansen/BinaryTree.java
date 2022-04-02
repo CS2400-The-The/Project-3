@@ -1,5 +1,7 @@
 package com.jamesjhansen;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class BinaryTree<T> implements BinaryTreeInterface<T>
 {
    private BinaryNode<T> root;
@@ -18,6 +20,59 @@ public class BinaryTree<T> implements BinaryTreeInterface<T>
    {
       initializeTree(rootData, leftTree, rightTree);
    } // end constructor
+
+   /**
+    * calls recursive method buildTreeFromPreAndInorder
+    * @param preorder
+    * @param inorder
+    */
+   public BinaryTree(String preorder, String inorder) {
+      AtomicInteger preIndex = new AtomicInteger(0);
+      root = buildTreeFromPreAndInorder(preorder, inorder, preIndex, 0, inorder.length()-1);
+   }
+
+   /**
+    * constructs tree from string representing preorder traversal and String representing inorder
+    * assumes both strings are valid to construct a binary tree
+    * @param preorder
+    * @param inorder
+    * @param preIndex
+    * @param start
+    * @param end
+    * @return
+    */
+   public BinaryNode<T> buildTreeFromPreAndInorder(String preorder, String inorder, AtomicInteger preIndex, int start, int end) {
+      if (start > end)
+         return null;
+
+      BinaryNode nNode = new BinaryNode(preorder.charAt(preIndex.getAndIncrement()));
+
+      if (start == end)
+         return nNode;
+
+      int match = nodeIndex(inorder, start, end, (char)nNode.getData());
+      nNode.setLeftChild(buildTreeFromPreAndInorder(inorder, preorder, preIndex, start, match-1));
+      nNode.setRightChild(buildTreeFromPreAndInorder(inorder, preorder, preIndex, match+1, end));
+
+      return nNode;
+   }
+
+   /**
+    * returns index of match with data that is in inorder String
+    * @param inorder
+    * @param start
+    * @param end
+    * @param data
+    * @return
+    */
+   public int nodeIndex(String inorder, int start, int end, char data) {
+      int i;
+      for (i=start; i<=end; i++) {
+         if (inorder.charAt(i) == data)
+            return i;
+      }
+      return i;
+   }
 
    public void setTree(T rootData, BinaryTreeInterface<T> leftTree,
                                    BinaryTreeInterface<T> rightTree)
@@ -80,7 +135,24 @@ public class BinaryTree<T> implements BinaryTreeInterface<T>
       if ((rightTree != null) && (rightTree != this))
          rightTree.clear();
    } // end initializeTree
-   
+
+   public void printInorder() {
+      printInorder(root);
+      System.out.println();
+   }
+
+   private void printInorder(BinaryNode node)
+   {
+      if (node == null)
+         return;
+
+      printInorder(node.getLeftChild());
+
+      System.out.print(node.getData() + " ");
+
+      printInorder(node.getRightChild());
+   }
+
    /** -------------------------------------------------------------------- */
    /** Task 1: Implement the 4 methods
     *     . In BinaryTree.java
