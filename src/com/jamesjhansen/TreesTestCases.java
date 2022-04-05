@@ -4,25 +4,11 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Current test case ideas:
- * 
- * for post order:
- * 1. Empty Tree
- * 2. Tree with one node (root)
- * 3. Tree with two nodes, root and left
- * 4. Tree with two nodes, root and right
- * 4.5 Complete Tree with height of two
- * 5. Tree with only node and right children
- * 6. Tree with only node and left children
- * 7. Complete, but not full tree
- * 8. Full tree,
- * 9. Random mix 
+ * Tests methods from tasks 1-4
  */
-public class TreesTestCases extends BinaryTree{
+class TreesTestCases {
 
-    //Creation of trees
-
-    //Emptytree
+    //Empty tree
     BinaryTree<String> emptyTree = new BinaryTree<>();
     String emptyTreeString = "";
 
@@ -33,14 +19,14 @@ public class TreesTestCases extends BinaryTree{
     //Tree with root and left child
     BinaryTree<String> rootAndLeftLeaf = new BinaryTree<>("B",null,null);
     BinaryTree<String> rootAndLeftTree = new BinaryTree<>("A",rootAndLeftLeaf,null);
-    static String rootandLeftTreeString = "     A     \n" +
+    String rootandLeftTreeString = "     A     \n" +
                                           "   /       \n" +
                                           "  B        ";
 
     //Tree with root and right child
     BinaryTree<String> rootAndRightLeaf = new BinaryTree<>("B",null,null);
     BinaryTree<String> rootAndRightTree = new BinaryTree<>("A",null,rootAndRightLeaf);
-    static String rootandRightTreeString ="     A      \n" +
+    String rootandRightTreeString ="     A      \n" +
                                           "      \\    \n" +
                                           "        B   ";  
     
@@ -48,7 +34,7 @@ public class TreesTestCases extends BinaryTree{
     BinaryTree<String> fullThreeNodeLeft = new BinaryTree<>("B",null,null);
     BinaryTree<String> fullThreeNodeRight = new BinaryTree<>("C",null,null);
     BinaryTree<String> fullThreeNodeTree = new BinaryTree<>("A", fullThreeNodeLeft,fullThreeNodeRight);
-    static String fullThreeNodeTreeString = "       A       \n" +
+    String fullThreeNodeTreeString = "       A       \n" +
                                             "     /   \\    \n" +
                                             "    B      C   "; 
 
@@ -58,12 +44,11 @@ public class TreesTestCases extends BinaryTree{
     BinaryTree<String> full2InnerLeft = new BinaryTree<>("B", full2LeftLeaf, full2RightLeaf);
     BinaryTree<String> full2InnerRight = new BinaryTree<>("C", null, null);
     BinaryTree<String> full2Root = new BinaryTree<>("A", full2InnerLeft, full2InnerRight);
-    static String full2Height3 = "      A       \n" +
+    String full2Height3 = "      A       \n" +
                                  "    /   \\    \n" +
                                  "   B     C    \n" +
                                  "  / \\        \n" +
                                  " D   E        ";
-                                 
 
     @Test
     void testPostOrderTraverse(){
@@ -76,7 +61,7 @@ public class TreesTestCases extends BinaryTree{
 
     }
 
-    @Test 
+    @Test
     void testGetHeight(){
 
         //GetHeight Test 1: Single Node Tree
@@ -160,15 +145,5 @@ public class TreesTestCases extends BinaryTree{
     @Test 
     void testGetNumberOfNodes_callBinaryNodeMethod() {
 
-    }
-    
-    public static void main(String[] args){
-        System.out.println(rootandLeftTreeString);
-        System.out.println();
-        System.out.println();
-        System.out.println(rootandRightTreeString);
-        System.out.println();
-        System.out.println();
-        System.out.println(fullThreeNodeTreeString);
     }
 }
