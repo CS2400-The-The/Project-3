@@ -12,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * 3. Tree with two nodes, root and left
  * 4. Tree with two nodes, root and right
  * 4.5 Complete Tree with height of two
+ * 4.69 Complete Tree with height of three
  * 5. Tree with only node and right children
  * 6. Tree with only node and left children
  * 7. Complete, but not full tree
@@ -42,7 +43,7 @@ public class TreesTestCases extends BinaryTree{
     BinaryTree<String> rootAndRightTree = new BinaryTree<>("A",null,rootAndRightLeaf);
     static String rootandRightTreeString ="     A      \n" +
                                           "      \\    \n" +
-                                          "        B   ";  
+                                          "       B     ";  
     
     //Full tree, height of two
     BinaryTree<String> fullThreeNodeLeft = new BinaryTree<>("B",null,null);
@@ -50,10 +51,95 @@ public class TreesTestCases extends BinaryTree{
     BinaryTree<String> fullThreeNodeTree = new BinaryTree<>("A", fullThreeNodeLeft,fullThreeNodeRight);
     static String fullThreeNodeTreeString = "       A       \n" +
                                             "     /   \\    \n" +
-                                            "    B      C   "; 
+                                            "    B     C     "; 
+ 
+    //Full tree, height of three
+    BinaryTree<String> full2LeftLeaf = new BinaryTree<>("D", null, null);
+    BinaryTree<String> full2RightLeaf = new BinaryTree<>("E", null, null);
+    BinaryTree<String> full2InnerLeft = new BinaryTree<>("B", full2LeftLeaf, full2RightLeaf);
+    BinaryTree<String> full2LeftLeaf2 = new BinaryTree<>("F", null, null);
+    BinaryTree<String> full2RightLeaf2 = new BinaryTree<>("G", null, null);
+    BinaryTree<String> full2InnerRight = new BinaryTree<>("C", full2LeftLeaf2, full2RightLeaf2);
+    BinaryTree<String> full2Root = new BinaryTree<>("A", full2InnerLeft, full2InnerRight);
+    static String full2 = "      A       \n" +
+                          "    /   \\    \n" +
+                          "   B     C    \n" +
+                          "  / \\  / \\  \n" +
+                          " D   E  F  G    ";
+    
+    //Tree with only right children
+    BinaryTree<String> rightChild3 = new BinaryTree<>("D", null, null);
+    BinaryTree<String> rightChild2 = new BinaryTree<>("C", null, rightChild3);
+    BinaryTree<String> rightChild1 = new BinaryTree<>("B", null, rightChild2);
+    BinaryTree<String> rightTree = new BinaryTree<>("A", null, rightChild1);
+    static String rightTreeString = "     A        \n" +
+                                    "     \\       \n" +
+                                    "      B      \n" +
+                                    "       \\     \n" +
+                                    "        C     \n" +
+                                    "         \\   \n" +
+                                    "          D   \n";
+
+    //Tree with only left children
+    BinaryTree<String> leftChild3 = new BinaryTree<>("D", null, null);
+    BinaryTree<String> leftChild2 = new BinaryTree<>("C", leftChild3, null);
+    BinaryTree<String> leftChild1 = new BinaryTree<>("B", leftChild2, null);
+    BinaryTree<String> leftTree = new BinaryTree<>("A", leftChild1, null);
+    static String leftTreeString = "       A       \n" +
+                                   "      /        \n" +
+                                   "     B         \n" +
+                                   "    /          \n" +
+                                   "   C           \n" +
+                                   "  /            \n" +
+                                   " D             \n";
+
+    //Complete, but not full tree
+    BinaryTree<String> completeChildJ = new BinaryTree<>("J", null, null);
+    BinaryTree<String> completeChildI = new BinaryTree<>("I", null, null);
+    BinaryTree<String> completeChildH = new BinaryTree<>("H", null, null);
+    BinaryTree<String> completeChildG = new BinaryTree<>("G", null, null);
+    BinaryTree<String> completeChildF = new BinaryTree<>("F", null, null);
+    BinaryTree<String> completeChildE = new BinaryTree<>("E", completeChildI, completeChildJ);
+    BinaryTree<String> completeChildD = new BinaryTree<>("D", completeChildG, completeChildH);
+    BinaryTree<String> completeChildC = new BinaryTree<>("C", completeChildF, null);
+    BinaryTree<String> completeChildB = new BinaryTree<>("B", completeChildD, completeChildE);
+    BinaryTree<String> completeTree = new BinaryTree<>("A", completeChildB, completeChildC);
+    static String completeTreeString = "           A          \n" +
+                                       "         /   \\       \n" +
+                                       "        B     C       \n" +
+                                       "       /\\    /       \n" +
+                                       "      D   E F         \n" +
+                                       "     /\\  /\\         \n" +
+                                       "    G  H I J           ";
+
+    //Full tree, height of four
+    BinaryTree<String> fullChildO = new BinaryTree<>("O", null, null);
+    BinaryTree<String> fullChildN = new BinaryTree<>("N", null, null);
+    BinaryTree<String> fullChildM = new BinaryTree<>("M", null, null);
+    BinaryTree<String> fullChildL = new BinaryTree<>("L", null, null);
+    BinaryTree<String> fullChildK = new BinaryTree<>("K", null, null);
+    BinaryTree<String> fullChildJ = new BinaryTree<>("J", null, null);
+    BinaryTree<String> fullChildI = new BinaryTree<>("I", null, null);
+    BinaryTree<String> fullChildH = new BinaryTree<>("H", null, null);
+    BinaryTree<String> fullChildG = new BinaryTree<>("G", null, null);
+    BinaryTree<String> fullChildF = new BinaryTree<>("F", null, null);
+    BinaryTree<String> fullChildE = new BinaryTree<>("E", null, null);
+    BinaryTree<String> fullChildD = new BinaryTree<>("D", null, null);
+    BinaryTree<String> fullChildC = new BinaryTree<>("C", null, null);
+    BinaryTree<String> fullChildB = new BinaryTree<>("B", null, null);
+    BinaryTree<String> fullChild = new BinaryTree<>("A", null, null);
+    static String fullChildString = "               A             \n" +
+                                    "           /       \\        \n" +
+                                    "          B         C        \n" +
+                                    "         /  \\      / \\     \n" +
+                                    "        D    E     F    G     \n" +
+                                    "       /\\   /\\    /\\   /\\\n" +
+                                    "      H  I  J K  L  M  N  O      ";
+
 
     @Test
     void testPostOrderTraverse(){
+
 
 
     }
@@ -91,5 +177,20 @@ public class TreesTestCases extends BinaryTree{
         System.out.println();
         System.out.println();
         System.out.println(fullThreeNodeTreeString);
+        System.out.println();
+        System.out.println();
+        System.out.println(full2);
+        System.out.println();
+        System.out.println();
+        System.out.println(rightTreeString);
+        System.out.println();
+        System.out.println();
+        System.out.println(leftTreeString);System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(completeTreeString);
+        System.out.println();
+        System.out.println();
+        System.out.println(fullChildString);
     }
 }
