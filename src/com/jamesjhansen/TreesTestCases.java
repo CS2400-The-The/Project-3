@@ -52,6 +52,19 @@ public class TreesTestCases extends BinaryTree{
                                             "     /   \\    \n" +
                                             "    B      C   "; 
 
+    //Full Tree with height of 3
+    BinaryTree<String> full2LeftLeaf = new BinaryTree<>("D", null, null);
+    BinaryTree<String> full2RightLeaf = new BinaryTree<>("E", null, null);
+    BinaryTree<String> full2InnerLeft = new BinaryTree<>("B", full2LeftLeaf, full2RightLeaf);
+    BinaryTree<String> full2InnerRight = new BinaryTree<>("C", null, null);
+    BinaryTree<String> full2Root = new BinaryTree<>("A", full2InnerLeft, full2InnerRight);
+    static String full2Height3 = "      A       \n" +
+                                 "    /   \\    \n" +
+                                 "   B     C    \n" +
+                                 "  / \\        \n" +
+                                 " D   E        ";
+                                 
+
     @Test
     void testPostOrderTraverse(){
 
@@ -65,6 +78,72 @@ public class TreesTestCases extends BinaryTree{
 
     @Test 
     void testGetHeight(){
+
+        //GetHeight Test 1: Single Node Tree
+    System.out.println("GetHeight Test 1 (BinaryTree): Single Node Tree");
+    System.out.println("Tree:");
+    System.out.println(rootTreeString);
+    int expected1 = 1;
+    int actual1 = rootTree.getHeight();
+    System.out.println("Expected: " + expected1);
+    System.out.println("Actual: " + actual1);
+    assertTrue(expected1 == actual1);
+    System.out.println();
+
+    //GetHeight Test 2: Tree with Root and Left Child
+    System.out.println("GetHeight Test 2 (BinaryTree): Tree with Root and Left Child");
+    System.out.println("Tree:");
+    System.out.println(rootandLeftTreeString);
+    int expected2 = 2;
+    int actual2 = rootAndLeftTree.getHeight();
+    System.out.println("Expected: " + expected2);
+    System.out.println("Actual: " + actual2);
+    assertTrue(expected2 == actual2);
+    System.out.println();
+
+    //GetHeight Test 3: Tree with Root and Right Child
+    System.out.println("GetHeight Test 3 (BinaryTree): Tree with Root and Right Child");
+    System.out.println("Tree:");
+    System.out.println(rootandRightTreeString);
+    int expected3 = 2;
+    int actual3 = rootAndRightTree.getHeight();
+    System.out.println("Expected: " + expected3);
+    System.out.println("Actual: " + actual3);
+    assertTrue(expected3 == actual3);
+    System.out.println();
+
+    //GetHeight Test 4: Full Tree with Height of 2
+    System.out.println("GetHeight Test 4 (BinaryTree): Full Tree with Height of 2");
+    System.out.println("Tree:");
+    System.out.println(fullThreeNodeTreeString);
+    int expected4 = 2;
+    int actual4 = fullThreeNodeTree.getHeight();
+    System.out.println("Expected: " + expected4);
+    System.out.println("Actual: " + actual4);
+    assertTrue(expected4 == actual4);
+    System.out.println();
+
+    //GetHeight Test 5: Full Tree with Height of 3
+    System.out.println("GetHeight Test 5 (BinaryTree): Full Tree with Height of 3");
+    System.out.println("Tree:");
+    System.out.println(full2Height3);
+    int expected5 = 3;
+    int actual5 = full2Root.getHeight();
+    System.out.println("Expected: " + expected5);
+    System.out.println("Actual: " + actual5);
+    assertTrue(expected5 == actual5);
+    System.out.println();
+
+    //GetHeight Test 6: Empty Tree
+    System.out.println("GetHeight Test 5 (BinaryTree): Full Tree with Height of 4");
+    System.out.println("Tree:");
+    System.out.println(emptyTreeString);
+    int expected6 = 0;
+    int actual6 = emptyTree.getHeight();
+    System.out.println("Expected: " + expected6);
+    System.out.println("Actual: " + actual6);
+    assertTrue(expected6 == actual6);
+    System.out.println();
     
     }
 
