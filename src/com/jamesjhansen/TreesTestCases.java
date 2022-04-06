@@ -17,6 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * 8. Tree with only node and left children
  * 9. Complete, but not full tree
  * 10. Full tree, height four, 
+ * Tests methods from tasks 1-4
  */
 class TreesTestCases {
 
@@ -135,6 +136,7 @@ class TreesTestCases {
 
                                 
 
+
     @Test
     void testPostOrderTraverse(){
 
@@ -207,6 +209,7 @@ class TreesTestCases {
         assertTrue(expected5 == actual5);
         System.out.println();
 
+        
         //GetHeight Test 6: Empty Tree
         System.out.println("GetHeight Test 5 (BinaryTree): Full Tree with Height of 4");
         System.out.println("Tree:");
@@ -370,6 +373,27 @@ class TreesTestCases {
 
 
         
+        //GetNumberOfNodes Test 1: Single Node Tree
+        System.out.println("getNumberOfNodes Test 1 (BinaryTree): Single Node Tree");
+        System.out.println("Tree:");
+        System.out.println(rootTreeString);
+        int expected1 = 1;
+        int actual1 = rootTree.getNumberOfNodes();
+        System.out.println("Expected: " + expected1);
+        System.out.println("Actual: " + actual1);
+        assertTrue(expected1 == actual1);
+        System.out.println();
+
+        //GetNumberOfNodes Test 2: Single Node Tree
+        System.out.println("getNumberOfNodes Test 2 (BinaryTree): Tree with Root and Left Child");
+        System.out.println("Tree:");
+        System.out.println(rootandLeftTreeString);
+        int expected2 = 2;
+        int actual2 = rootAndLeftTree.getNumberOfNodes();
+        System.out.println("Expected: " + expected2);
+        System.out.println("Actual: " + actual2);
+        assertTrue(expected2 == actual2);
+        System.out.println();
 
     }
 
