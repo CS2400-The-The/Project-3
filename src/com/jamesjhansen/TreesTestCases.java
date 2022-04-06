@@ -217,7 +217,7 @@ class TreesTestCases {
         assertTrue(expected1 == actual1);
         System.out.println();
 
-        //GetNumberOfNodes Test 1: Single Node Tree
+        //GetNumberOfNodes Test 2: Single Node Tree
         System.out.println("getNumberOfNodes Test 2 (BinaryTree): Tree with Root and Left Child");
         System.out.println("Tree:");
         System.out.println(rootandLeftTreeString);
