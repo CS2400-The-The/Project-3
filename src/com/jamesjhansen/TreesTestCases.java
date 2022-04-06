@@ -4,26 +4,13 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Current test case ideas:
- * 
- * 1. Empty Tree 
- * 2. Tree with one node (root)
- * 3. Tree with two nodes, root and left
- * 4. Tree with two nodes, root and right
- * 5. Full Tree with height of two
- * 6. Full Tree with height of three
- * 7. Tree with only node and right children
- * 8. Tree with only node and left children
- * 9. Complete, but not full tree
- * 10. Full tree, height four, 
- * 11. Uncomplete tree
- * Tests methods from tasks 1-4
+ * unit tests for methods from tasks 1-4
  */
 class TreesTestCases {
 
     //Empty tree
     BinaryTree<String> emptyTree = new BinaryTree<>();
-    static String emptyTreeString = "";
+    String emptyTreeString = "";
 
     //Tree with one node
     BinaryTree<String> rootTree = new BinaryTree<>("A",null,null);
@@ -52,14 +39,13 @@ class TreesTestCases {
                                             "    B     C     "; 
  
     //Full tree, height of three
-    static BinaryTree<String> full2LeftLeaf = new BinaryTree<>("D", null, null);
-    static BinaryTree<String> full2RightLeaf = new BinaryTree<>("E", null, null);
-    static BinaryTree<String> full2InnerLeft = new BinaryTree<>("B", full2LeftLeaf, full2RightLeaf);
-    static BinaryTree<String> full2LeftLeaf2 = new BinaryTree<>("F", null, null);
-    static BinaryTree<String> full2RightLeaf2 = new BinaryTree<>("G", null, null);
-    static BinaryTree<String> full2InnerRight = new BinaryTree<>("C", full2LeftLeaf2, full2RightLeaf2);
-    static BinaryTree<String> full2Root = new BinaryTree<>("A", full2InnerLeft, full2InnerRight);
-    static String full2RootString = "      A       \n" +
+    BinaryTree<String> full2LeftLeaf = new BinaryTree<>("D", null, null);
+    BinaryTree<String> full2RightLeaf = new BinaryTree<>("E", null, null);
+    BinaryTree<String> full2InnerLeft = new BinaryTree<>("B", full2LeftLeaf, full2RightLeaf);
+    BinaryTree<String> full2LeftLeaf2 = new BinaryTree<>("F", null, null);
+    BinaryTree<String> full2RightLeaf2 = new BinaryTree<>("G", null, null);
+    BinaryTree<String> full2InnerRight = new BinaryTree<>("C", full2LeftLeaf2, full2RightLeaf2);BinaryTree<String> full2Root = new BinaryTree<>("A", full2InnerLeft, full2InnerRight);
+    String full2RootString = "      A       \n" +
                                     "    /   \\    \n" +
                                     "   B     C    \n" +
                                     "  / \\  / \\  \n" +
@@ -70,7 +56,7 @@ class TreesTestCases {
     BinaryTree<String> rightChild2 = new BinaryTree<>("C", null, rightChild3);
     BinaryTree<String> rightChild1 = new BinaryTree<>("B", null, rightChild2);
     BinaryTree<String> rightTree = new BinaryTree<>("A", null, rightChild1);
-    static String rightTreeString = "     A        \n" +
+    String rightTreeString = "     A        \n" +
                                     "      \\       \n" +
                                     "       B      \n" +
                                     "        \\     \n" +
@@ -83,7 +69,7 @@ class TreesTestCases {
     BinaryTree<String> leftChild2 = new BinaryTree<>("C", leftChild3, null);
     BinaryTree<String> leftChild1 = new BinaryTree<>("B", leftChild2, null);
     BinaryTree<String> leftTree = new BinaryTree<>("A", leftChild1, null);
-    static String leftTreeString = "       A       \n" +
+    String leftTreeString = "       A       \n" +
                                    "      /        \n" +
                                    "     B         \n" +
                                    "    /          \n" +
@@ -102,7 +88,7 @@ class TreesTestCases {
     BinaryTree<String> completeChildC = new BinaryTree<>("C", completeChildF, null);
     BinaryTree<String> completeChildB = new BinaryTree<>("B", completeChildD, completeChildE);
     BinaryTree<String> completeTree = new BinaryTree<>("A", completeChildB, completeChildC); //GHDIJEBFCA
-    static String completeTreeString = "           A          \n" +
+    String completeTreeString = "           A          \n" +
                                        "         /   \\       \n" +
                                        "        B     C       \n" +
                                        "       /\\    /       \n" +
@@ -126,7 +112,7 @@ class TreesTestCases {
     BinaryTree<String> fullChildC = new BinaryTree<>("C", fullChildF, fullChildG);
     BinaryTree<String> fullChildB = new BinaryTree<>("B", fullChildD, fullChildE);
     BinaryTree<String> fullChild = new BinaryTree<>("A", fullChildB, fullChildC);
-    static String fullChildString = "               A             \n" +
+    String fullChildString = "               A             \n" +
                                     "           /       \\        \n" +
                                     "          B         C        \n" +
                                     "         /  \\      / \\     \n" +
@@ -135,24 +121,19 @@ class TreesTestCases {
                                     "      H  I  J K  L  M  N  O      ";
     
     //Not complete tree
-    static BinaryTree<String> uncompleteLeaf4 = new BinaryTree<>("F", null, null);
-    static BinaryTree<String> uncompleteLeaf3 = new BinaryTree<>("E", null, null);
-    static BinaryTree<String> uncompleteLeaf2 = new BinaryTree<>("C", uncompleteLeaf4, null);
-    static BinaryTree<String> uncompleteLeaf1 = new BinaryTree<>("B", null, uncompleteLeaf3);
-    static BinaryTree<String> uncompleteRoot = new BinaryTree<>("A", uncompleteLeaf1, uncompleteLeaf2);
-    static String uncompleteRootString = "      A       \n" +
+     BinaryTree<String> uncompleteLeaf4 = new BinaryTree<>("F", null, null);
+     BinaryTree<String> uncompleteLeaf3 = new BinaryTree<>("E", null, null);
+     BinaryTree<String> uncompleteLeaf2 = new BinaryTree<>("C", uncompleteLeaf4, null);
+     BinaryTree<String> uncompleteLeaf1 = new BinaryTree<>("B", null, uncompleteLeaf3);
+     BinaryTree<String> uncompleteRoot = new BinaryTree<>("A", uncompleteLeaf1, uncompleteLeaf2);
+     String uncompleteRootString = "      A       \n" +
                                          "    /   \\    \n" +
                                          "   B     C    \n" +
                                          "    \\  /     \n" +
                                          "     E  F       ";
 
-                                
-
-
     @Test
     void testPostOrderTraverse(){
-
-        
         //GetPostOrder Test 1: Empty Tree
         System.out.println("postOrderTraverse Test 1: Empty Tree");
         System.out.println("Tree:");
@@ -251,14 +232,10 @@ class TreesTestCases {
         System.out.println("Actual: " + actual9);
         assertEquals(expected9 , actual9);
         System.out.println();
-
-
-
     }
 
     @Test
     void testPostOrderTraverse_callbinaryNodeMethod(){
-
         //GetPostOrder Test 1: Empty Tree
         System.out.println("postOrderTraverse Test 1: Empty Tree");
         System.out.println("Tree:");
@@ -357,12 +334,10 @@ class TreesTestCases {
         System.out.println("Actual: " + actual9);
         assertEquals(expected9 , actual9);
         System.out.println();
-
     }
 
     @Test
     void testGetHeight(){
-
         //GetHeight Test 1: Single Node Tree
         System.out.println("GetHeight Test 1 (BinaryTree): Single Node Tree");
         System.out.println("Tree:");
@@ -455,7 +430,6 @@ class TreesTestCases {
 
     @Test 
     void testGetHeight_callBinaryNodeMethod() {
-
         //GetHeight_callBinaryNodeMethod Test 1: Single Node Tree
         System.out.println("GetHeight Test 1 (BinaryNode): Single Node Tree");
         System.out.println("Tree:");
@@ -548,7 +522,6 @@ class TreesTestCases {
 
     @Test 
     void testGetNumberOfNodes() {
-
         //GetNumberofNodes test 1: Empty Tree
         System.out.println("getNumberOfNodes test 1: Empty Tree");
         System.out.println("Tree image: \n" + emptyTreeString);
@@ -647,15 +620,10 @@ class TreesTestCases {
         System.out.println("Expected number of nodes in this tree: " + expectedNodes11);
         System.out.println("Actual number of nodes in this tree: " + actualNodes11);
         assertEquals(expectedNodes11,actualNodes11);
-        
-
-        
-
     }
 
     @Test 
     void testGetNumberOfNodes_callBinaryNodeMethod() {
-
         //GetNumberofNodes test 1: Empty Tree
         System.out.println("getNumberOfNodes test 1: Empty Tree");
         System.out.println("Tree image: \n" + emptyTreeString);
@@ -754,15 +722,5 @@ class TreesTestCases {
         System.out.println("Expected number of nodes in this tree: " + expectedNodes11);
         System.out.println("Actual number of nodes in this tree: " + actualNodes11);
         assertEquals(expectedNodes11,actualNodes11);
-
-    }
-
-    @Test
-    void testbuildTreeFromPreAndInorder() {
-
-    }
-    
-    public static void main(String[] args){
-        System.out.println(full2Root.postorderTraverseP());
     }
 }
