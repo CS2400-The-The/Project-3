@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * 8. Tree with only node and left children
  * 9. Complete, but not full tree
  * 10. Full tree, height four, 
- * 11. Noncomplete tree
+ * 11. Uncomplete tree
  * Tests methods from tasks 1-4
  */
 class TreesTestCases {
@@ -152,51 +152,52 @@ class TreesTestCases {
     @Test
     void testPostOrderTraverse(){
 
-        //GetHeight Test 1: Single Node Tree
-        System.out.println("postOrderTraverse Test 1 (BinaryTree): Single Node Tree");
+        
+        //GetPostOrder Test 1: Empty Tree
+        System.out.println("postOrderTraverse Test 1: Empty Tree");
+        System.out.println("Tree:");
+        System.out.println(emptyTreeString);
+        String expected1 = "";
+        //String actual1 = emptyTree.postorderTraverseP();
+        System.out.println("Expected: " + expected1);
+        //System.out.println("Actual: " + actual1);
+        //assertEquals(expected1 , actual1);
+        System.out.println();
+        
+        //GetPostOrder Test 2: Single Node Tree
+        System.out.println("postOrderTraverse Test 2 (BinaryTree): Single Node Tree");
         System.out.println("Tree:");
         System.out.println(rootTreeString);
-        String expected1 = "A";
-        String actual1 = rootTree.postorderTraverseP();
-        System.out.println("Expected: " + expected1);
-        System.out.println("Actual: " + actual1);
-        assertEquals(expected1 , rootTree.postorderTraverseP());
-        System.out.println();
-
-        //GetHeight Test 2: Tree with a Root and Left Tree
-        System.out.println("postOrderTraverse Test 2 (BinaryTree): Tree with a Root and Left Tree");
-        System.out.println("Tree:");
-        System.out.println(rootandLeftTreeString);
-        String expected2 = "BA";
-        String actual2 = rootAndLeftTree.postorderTraverseP();
+        String expected2 = "A";
+        String actual2 = rootTree.postorderTraverseP();
         System.out.println("Expected: " + expected2);
         System.out.println("Actual: " + actual2);
-        assertEquals(expected2 , rootAndLeftTree.postorderTraverseP());
+        assertEquals(expected2 , actual2);
         System.out.println();
 
-        //GetHeight Test 3: Full Tree, Height of Two
-        System.out.println("postOrderTraverse Test 3 (BinaryTree): Full Tree, Height of Two");
+        //GetPostOrder Test 3: Tree with a Root and Left Tree
+        System.out.println("postOrderTraverse Test 3 (BinaryTree): Tree with a Root and Left Tree");
         System.out.println("Tree:");
-        System.out.println(fullThreeNodeTreeString);
-        String expected3 = "BCA";
-        String actual3 = fullThreeNodeTree.postorderTraverseP();
+        System.out.println(rootandLeftTreeString);
+        String expected3 = "BA";
+        String actual3 = rootAndLeftTree.postorderTraverseP();
         System.out.println("Expected: " + expected3);
         System.out.println("Actual: " + actual3);
-        assertEquals(expected3 , fullThreeNodeTree.postorderTraverseP());
+        assertEquals(expected3 , actual3);
         System.out.println();
 
-        //GetHeight Test 4: Complete, but not full tree
-        System.out.println("postOrderTraverse Test 4 (BinaryTree): Complete, but Not Full Tree");
+        //GetPostOrder Test 4: Full Tree, Height of Two
+        System.out.println("postOrderTraverse Test 4 (BinaryTree): Full Tree, Height of Two");
         System.out.println("Tree:");
-        System.out.println(completeTreeString);
-        String expected4 = "GHDIJEBFCA";
-        String actual4 = completeTree.postorderTraverseP();
+        System.out.println(fullThreeNodeTreeString);
+        String expected4 = "BCA";
+        String actual4 = fullThreeNodeTree.postorderTraverseP();
         System.out.println("Expected: " + expected4);
         System.out.println("Actual: " + actual4);
-        assertEquals(expected4 , completeTree.postorderTraverseP());
+        assertEquals(expected4 , actual4);
         System.out.println();
 
-        //GetHeight Test 5: Tree with Only Right Children
+        //GetPostOrder Test 5: Tree with Only Right Children
         System.out.println("postOrderTraverse Test 5 (BinaryTree): Tree with Only Right Children");
         System.out.println("Tree:");
         System.out.println(rightTreeString);
@@ -207,7 +208,7 @@ class TreesTestCases {
         assertEquals(expected5 , rightTree.postorderTraverseP());
         System.out.println();
 
-        //GetHeight Test 6: Tree with Only Left Children
+        //GetPostOrder Test 6: Tree with Only Left Children
         System.out.println("postOrderTraverse Test 6 (BinaryTree): Tree with Only Left Children");
         System.out.println("Tree:");
         System.out.println(leftTreeString);
@@ -218,11 +219,144 @@ class TreesTestCases {
         assertEquals(expected6 , leftTree.postorderTraverseP());
         System.out.println();
 
+        //GetPostOrder Test 7: Complete, but not full tree
+        System.out.println("postOrderTraverse Test 7 (BinaryTree): Complete, but Not Full Tree");
+        System.out.println("Tree:");
+        System.out.println(completeTreeString);
+        String expected7 = "GHDIJEBFCA";
+        String actual7 = completeTree.postorderTraverseP();
+        System.out.println("Expected: " + expected7);
+        System.out.println("Actual: " + actual7);
+        assertEquals(expected7 , actual7);
+        System.out.println();
+
+        //GetPostOrder Test 8: Full tree, height of 4
+        System.out.println("postOrderTraverse Test 8 (BinaryTree): Full Tree, height four");
+        System.out.println("Tree:");
+        System.out.println(fullChildString);
+        String expected8 = "HIDJKEBLMFNOGCA";
+        String actual8 = fullChild.postorderTraverseP();
+        System.out.println("Expected: " + expected8);
+        System.out.println("Actual: " + actual8);
+        assertEquals(expected8 , actual8);
+        System.out.println();
+
+        //GetPostOrder Test 9: Uncomplete tree
+        System.out.println("postOrderTraverse Test 9: (BinaryTree): uncomplete Tree");
+        System.out.println("Tree:");
+        System.out.println(uncompleteRootString);
+        String expected9 = "EBFCA";
+        String actual9 = uncompleteRoot.postorderTraverseP();
+        System.out.println("Expected: " + expected9);
+        System.out.println("Actual: " + actual9);
+        assertEquals(expected9 , actual9);
+        System.out.println();
+
+
 
     }
 
     @Test
     void testPostOrderTraverse_callbinaryNodeMethod(){
+
+        //GetPostOrder Test 1: Empty Tree
+        System.out.println("postOrderTraverse Test 1: Empty Tree");
+        System.out.println("Tree:");
+        System.out.println(emptyTreeString);
+        String expected1 = "";
+        //String actual1 = emptyTree.postorderTraverseP();
+        System.out.println("Expected: " + expected1);
+        //System.out.println("Actual: " + actual1);
+        //assertEquals(expected1 , actual1);
+        System.out.println();
+        
+        //GetPostOrder Test 2: Single Node Tree
+        System.out.println("postOrderTraverse Test 2 (BinaryTree): Single Node Tree");
+        System.out.println("Tree:");
+        System.out.println(rootTreeString);
+        String expected2 = "A";
+        String actual2 = rootTree.postorderTraverse_callBinaryNodeMethodP();
+        System.out.println("Expected: " + expected2);
+        System.out.println("Actual: " + actual2);
+        assertEquals(expected2 , actual2);
+        System.out.println();
+
+        //GetPostOrder Test 3: Tree with a Root and Left Tree
+        System.out.println("postOrderTraverse Test 3 (BinaryTree): Tree with a Root and Left Tree");
+        System.out.println("Tree:");
+        System.out.println(rootandLeftTreeString);
+        String expected3 = "BA";
+        String actual3 = rootAndLeftTree.postorderTraverse_callBinaryNodeMethodP();
+        System.out.println("Expected: " + expected3);
+        System.out.println("Actual: " + actual3);
+        assertEquals(expected3 , actual3);
+        System.out.println();
+
+        //GetPostOrder Test 4: Full Tree, Height of Two
+        System.out.println("postOrderTraverse Test 4 (BinaryTree): Full Tree, Height of Two");
+        System.out.println("Tree:");
+        System.out.println(fullThreeNodeTreeString);
+        String expected4 = "BCA";
+        String actual4 = fullThreeNodeTree.postorderTraverse_callBinaryNodeMethodP();
+        System.out.println("Expected: " + expected4);
+        System.out.println("Actual: " + actual4);
+        assertEquals(expected4 , actual4);
+        System.out.println();
+
+        //GetPostOrder Test 5: Tree with Only Right Children
+        System.out.println("postOrderTraverse Test 5 (BinaryTree): Tree with Only Right Children");
+        System.out.println("Tree:");
+        System.out.println(rightTreeString);
+        String expected5 = "DCBA";
+        String actual5 = rightTree.postorderTraverse_callBinaryNodeMethodP();
+        System.out.println("Expected: " + expected5);
+        System.out.println("Actual: " + actual5);
+        assertEquals(expected5 , rightTree.postorderTraverseP());
+        System.out.println();
+
+        //GetPostOrder Test 6: Tree with Only Left Children
+        System.out.println("postOrderTraverse Test 6 (BinaryTree): Tree with Only Left Children");
+        System.out.println("Tree:");
+        System.out.println(leftTreeString);
+        String expected6 = "DCBA";
+        String actual6 = leftTree.postorderTraverse_callBinaryNodeMethodP();
+        System.out.println("Expected: " + expected6);
+        System.out.println("Actual: " + actual6);
+        assertEquals(expected6 , leftTree.postorderTraverseP());
+        System.out.println();
+
+        //GetPostOrder Test 7: Complete, but not full tree
+        System.out.println("postOrderTraverse Test 7 (BinaryTree): Complete, but Not Full Tree");
+        System.out.println("Tree:");
+        System.out.println(completeTreeString);
+        String expected7 = "GHDIJEBFCA";
+        String actual7 = completeTree.postorderTraverse_callBinaryNodeMethodP();
+        System.out.println("Expected: " + expected7);
+        System.out.println("Actual: " + actual7);
+        assertEquals(expected7 , actual7);
+        System.out.println();
+
+        //GetPostOrder Test 8: Full tree, height of 4
+        System.out.println("postOrderTraverse Test 8 (BinaryTree): Full Tree, height four");
+        System.out.println("Tree:");
+        System.out.println(fullChildString);
+        String expected8 = "HIDJKEBLMFNOGCA";
+        String actual8 = fullChild.postorderTraverse_callBinaryNodeMethodP();
+        System.out.println("Expected: " + expected8);
+        System.out.println("Actual: " + actual8);
+        assertEquals(expected8 , actual8);
+        System.out.println();
+
+        //GetPostOrder Test 9: Uncomplete tree
+        System.out.println("postOrderTraverse Test 9: (BinaryTree): uncomplete Tree");
+        System.out.println("Tree:");
+        System.out.println(uncompleteRootString);
+        String expected9 = "EBFCA";
+        String actual9 = uncompleteRoot.postorderTraverse_callBinaryNodeMethodP();
+        System.out.println("Expected: " + expected9);
+        System.out.println("Actual: " + actual9);
+        assertEquals(expected9 , actual9);
+        System.out.println();
 
     }
 
