@@ -60,10 +60,10 @@ class TreesTestCases {
     static BinaryTree<String> full2InnerRight = new BinaryTree<>("C", full2LeftLeaf2, full2RightLeaf2);
     static BinaryTree<String> full2Root = new BinaryTree<>("A", full2InnerLeft, full2InnerRight);
     static String full2RootString = "      A       \n" +
-                          "    /   \\    \n" +
-                          "   B     C    \n" +
-                          "  / \\  / \\  \n" +
-                          " D   E  F  G    ";
+                                    "    /   \\    \n" +
+                                    "   B     C    \n" +
+                                    "  / \\  / \\  \n" +
+                                    " D  E  F  G    ";
     
     //Tree with only right children
     BinaryTree<String> rightChild3 = new BinaryTree<>("D", null, null);
@@ -71,12 +71,12 @@ class TreesTestCases {
     BinaryTree<String> rightChild1 = new BinaryTree<>("B", null, rightChild2);
     BinaryTree<String> rightTree = new BinaryTree<>("A", null, rightChild1);
     static String rightTreeString = "     A        \n" +
-                                    "     \\       \n" +
-                                    "      B      \n" +
-                                    "       \\     \n" +
-                                    "        C     \n" +
-                                    "         \\   \n" +
-                                    "          D   \n";
+                                    "      \\       \n" +
+                                    "       B      \n" +
+                                    "        \\     \n" +
+                                    "         C     \n" +
+                                    "          \\   \n" +
+                                    "           D   \n";
 
     //Tree with only left children
     BinaryTree<String> leftChild3 = new BinaryTree<>("D", null, null);
@@ -101,12 +101,12 @@ class TreesTestCases {
     BinaryTree<String> completeChildD = new BinaryTree<>("D", completeChildG, completeChildH);
     BinaryTree<String> completeChildC = new BinaryTree<>("C", completeChildF, null);
     BinaryTree<String> completeChildB = new BinaryTree<>("B", completeChildD, completeChildE);
-    BinaryTree<String> completeTree = new BinaryTree<>("A", completeChildB, completeChildC);
+    BinaryTree<String> completeTree = new BinaryTree<>("A", completeChildB, completeChildC); //GHDIJEBFCA
     static String completeTreeString = "           A          \n" +
                                        "         /   \\       \n" +
                                        "        B     C       \n" +
                                        "       /\\    /       \n" +
-                                       "      D   E F         \n" +
+                                       "      D  E  F         \n" +
                                        "     /\\  /\\         \n" +
                                        "    G  H I J           ";
 
@@ -140,8 +140,71 @@ class TreesTestCases {
     @Test
     void testPostOrderTraverse(){
 
-        assertEquals("A B",full2Root.postorderTraverse().toString());
+        //GetHeight Test 1: Single Node Tree
+        System.out.println("postOrderTraverse Test 1 (BinaryTree): Single Node Tree");
+        System.out.println("Tree:");
+        System.out.println(rootTreeString);
+        String expected1 = "A";
+        String actual1 = rootTree.postorderTraverseP();
+        System.out.println("Expected: " + expected1);
+        System.out.println("Actual: " + actual1);
+        assertEquals(expected1 , rootTree.postorderTraverseP());
+        System.out.println();
 
+        //GetHeight Test 2: Tree with a Root and Left Tree
+        System.out.println("postOrderTraverse Test 2 (BinaryTree): Tree with a Root and Left Tree");
+        System.out.println("Tree:");
+        System.out.println(rootandLeftTreeString);
+        String expected2 = "BA";
+        String actual2 = rootAndLeftTree.postorderTraverseP();
+        System.out.println("Expected: " + expected2);
+        System.out.println("Actual: " + actual2);
+        assertEquals(expected2 , rootAndLeftTree.postorderTraverseP());
+        System.out.println();
+
+        //GetHeight Test 3: Full Tree, Height of Two
+        System.out.println("postOrderTraverse Test 3 (BinaryTree): Full Tree, Height of Two");
+        System.out.println("Tree:");
+        System.out.println(fullThreeNodeTreeString);
+        String expected3 = "BCA";
+        String actual3 = fullThreeNodeTree.postorderTraverseP();
+        System.out.println("Expected: " + expected3);
+        System.out.println("Actual: " + actual3);
+        assertEquals(expected3 , fullThreeNodeTree.postorderTraverseP());
+        System.out.println();
+
+        //GetHeight Test 4: Complete, but not full tree
+        System.out.println("postOrderTraverse Test 4 (BinaryTree): Complete, but Not Full Tree");
+        System.out.println("Tree:");
+        System.out.println(completeTreeString);
+        String expected4 = "GHDIJEBFCA";
+        String actual4 = completeTree.postorderTraverseP();
+        System.out.println("Expected: " + expected4);
+        System.out.println("Actual: " + actual4);
+        assertEquals(expected4 , completeTree.postorderTraverseP());
+        System.out.println();
+
+        //GetHeight Test 5: Tree with Only Right Children
+        System.out.println("postOrderTraverse Test 5 (BinaryTree): Tree with Only Right Children");
+        System.out.println("Tree:");
+        System.out.println(rightTreeString);
+        String expected5 = "DCBA";
+        String actual5 = rightTree.postorderTraverseP();
+        System.out.println("Expected: " + expected5);
+        System.out.println("Actual: " + actual5);
+        assertEquals(expected5 , rightTree.postorderTraverseP());
+        System.out.println();
+
+        //GetHeight Test 6: Tree with Only Left Children
+        System.out.println("postOrderTraverse Test 6 (BinaryTree): Tree with Only Left Children");
+        System.out.println("Tree:");
+        System.out.println(leftTreeString);
+        String expected6 = "DCBA";
+        String actual6 = leftTree.postorderTraverseP();
+        System.out.println("Expected: " + expected6);
+        System.out.println("Actual: " + actual6);
+        assertEquals(expected6 , leftTree.postorderTraverseP());
+        System.out.println();
 
 
     }
@@ -282,7 +345,7 @@ class TreesTestCases {
         System.out.println();
 
         //GetHeight_callBinaryNodeMethod Test 6: Empty Tree
-        System.out.println("GetHeight Test 5 (BinaryNode): Full Tree with Height of 4");
+        System.out.println("GetHeight Test 6 (BinaryNode): Empty Tree");
         System.out.println("Tree:");
         System.out.println(emptyTreeString);
         int expected6 = 0;
@@ -401,8 +464,13 @@ class TreesTestCases {
     void testGetNumberOfNodes_callBinaryNodeMethod() {
 
     }
+
+    @Test
+    void testbuildTreeFromPreAndInorder() {
+
+    }
     
     public static void main(String[] args){
-        System.out.println(full2Root.postorderTraverse().toString());
+        System.out.println(full2Root.postorderTraverseP());
     }
 }
