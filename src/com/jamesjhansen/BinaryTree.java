@@ -164,26 +164,33 @@ public class BinaryTree<T> implements BinaryTreeInterface<T>
    
    /** calls postorderTraverse(BinaryNode<T> node)
     * prints (using post-order traversal) all nodes in the "whole" tree */
-   public void postorderTraverse()
+
+   public String postorderTraverse()
    {
+
       if (root == null)
          throw new EmptyTreeException();
-      postorderTraverse(root.getLeftChild());
-      postorderTraverse(root.getRightChild());
-      System.out.println(root.getData());
+
+      return postorderTraverse(root);
+      
    }
+   
+
+   
    
    /** A Recursive Method in the BinaryTree Class   
     * prints (using post-order traversal) all nodes in the subtree rooted at this node.*/
-   private void postorderTraverse(BinaryNode<T> node)
+   private String postorderTraverse(BinaryNode<T> node)
    {
+      String left = "";
+      String right = "";
       if (node.hasLeftChild())
-         postorderTraverse(node.getLeftChild());
+         left = postorderTraverse(node.getLeftChild());
 
       if (node.hasRightChild())
-         postorderTraverse(node.getRightChild());
+         right = postorderTraverse(node.getRightChild());
 
-      System.out.println(node.getData());
+      return left + right + node.getData();
    }
  
    /** The following calls postorderTraverse_binaryNodeMethod(), which is a recursive binaryNode class method   

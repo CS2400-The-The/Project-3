@@ -54,13 +54,13 @@ public class TreesTestCases extends BinaryTree{
                                             "    B     C     "; 
  
     //Full tree, height of three
-    BinaryTree<String> full2LeftLeaf = new BinaryTree<>("D", null, null);
-    BinaryTree<String> full2RightLeaf = new BinaryTree<>("E", null, null);
-    BinaryTree<String> full2InnerLeft = new BinaryTree<>("B", full2LeftLeaf, full2RightLeaf);
-    BinaryTree<String> full2LeftLeaf2 = new BinaryTree<>("F", null, null);
-    BinaryTree<String> full2RightLeaf2 = new BinaryTree<>("G", null, null);
-    BinaryTree<String> full2InnerRight = new BinaryTree<>("C", full2LeftLeaf2, full2RightLeaf2);
-    BinaryTree<String> full2Root = new BinaryTree<>("A", full2InnerLeft, full2InnerRight);
+    static BinaryTree<String> full2LeftLeaf = new BinaryTree<>("D", null, null);
+    static BinaryTree<String> full2RightLeaf = new BinaryTree<>("E", null, null);
+    static BinaryTree<String> full2InnerLeft = new BinaryTree<>("B", full2LeftLeaf, full2RightLeaf);
+    static BinaryTree<String> full2LeftLeaf2 = new BinaryTree<>("F", null, null);
+    static BinaryTree<String> full2RightLeaf2 = new BinaryTree<>("G", null, null);
+    static BinaryTree<String> full2InnerRight = new BinaryTree<>("C", full2LeftLeaf2, full2RightLeaf2);
+    static BinaryTree<String> full2Root = new BinaryTree<>("A", full2InnerLeft, full2InnerRight);
     static String full2 = "      A       \n" +
                           "    /   \\    \n" +
                           "   B     C    \n" +
@@ -140,6 +140,8 @@ public class TreesTestCases extends BinaryTree{
     @Test
     void testPostOrderTraverse(){
 
+        assertEquals("A B",full2Root.postorderTraverse().toString());
+
 
 
     }
@@ -170,27 +172,6 @@ public class TreesTestCases extends BinaryTree{
     }
     
     public static void main(String[] args){
-        System.out.println(rootandLeftTreeString);
-        System.out.println();
-        System.out.println();
-        System.out.println(rootandRightTreeString);
-        System.out.println();
-        System.out.println();
-        System.out.println(fullThreeNodeTreeString);
-        System.out.println();
-        System.out.println();
-        System.out.println(full2);
-        System.out.println();
-        System.out.println();
-        System.out.println(rightTreeString);
-        System.out.println();
-        System.out.println();
-        System.out.println(leftTreeString);System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println(completeTreeString);
-        System.out.println();
-        System.out.println();
-        System.out.println(fullChildString);
+        System.out.println(full2Root.postorderTraverse().toString());
     }
 }
