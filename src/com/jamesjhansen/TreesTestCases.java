@@ -11,13 +11,12 @@ import static org.junit.jupiter.api.Assertions.*;
  * 2. Tree with one node (root)
  * 3. Tree with two nodes, root and left
  * 4. Tree with two nodes, root and right
- * 4.5 Complete Tree with height of two
- * 4.69 Complete Tree with height of three
- * 5. Tree with only node and right children
- * 6. Tree with only node and left children
- * 7. Complete, but not full tree
- * 8. Full tree,
- * 9. Random mix 
+ * 5. Full Tree with height of two
+ * 6. Full Tree with height of three
+ * 7. Tree with only node and right children
+ * 8. Tree with only node and left children
+ * 9. Complete, but not full tree
+ * 10. Full tree, height four, 
  */
 public class TreesTestCases extends BinaryTree{
 
@@ -25,7 +24,7 @@ public class TreesTestCases extends BinaryTree{
 
     //Emptytree
     BinaryTree<String> emptyTree = new BinaryTree<>();
-    String emptyTreeString = "";
+    static String emptyTreeString = "";
 
     //Tree with one node
     BinaryTree<String> rootTree = new BinaryTree<>("A",null,null);
@@ -61,7 +60,7 @@ public class TreesTestCases extends BinaryTree{
     static BinaryTree<String> full2RightLeaf2 = new BinaryTree<>("G", null, null);
     static BinaryTree<String> full2InnerRight = new BinaryTree<>("C", full2LeftLeaf2, full2RightLeaf2);
     static BinaryTree<String> full2Root = new BinaryTree<>("A", full2InnerLeft, full2InnerRight);
-    static String full2 = "      A       \n" +
+    static String full2RootString = "      A       \n" +
                           "    /   \\    \n" +
                           "   B     C    \n" +
                           "  / \\  / \\  \n" +
@@ -202,7 +201,7 @@ public class TreesTestCases extends BinaryTree{
         //GetHeight Test 5: Full Tree with Height of 3
         System.out.println("GetHeight Test 5 (BinaryTree): Full Tree with Height of 3");
         System.out.println("Tree:");
-        System.out.println(full2);
+        System.out.println(full2RootString);
         int expected5 = 3;
         int actual5 = full2Root.getHeight();
         System.out.println("Expected: " + expected5);
@@ -230,6 +229,82 @@ public class TreesTestCases extends BinaryTree{
 
     @Test 
     void testGetNumberOfNodes() {
+
+        //GetNumberofNodes test 1: Empty Tree
+        System.out.println("getNumberOfNodes test 1: Empty Tree");
+        System.out.println("Tree image: \n" + emptyTreeString);
+        int expectedNodes1 = 0;
+        int actualNodes1 = emptyTree.getNumberOfNodes();
+        System.out.println("Expected number of nodes in this tree: " + expectedNodes1);
+        System.out.println("Actual number of nodes in this tree: " + actualNodes1);
+        assertEquals(expectedNodes1,actualNodes1);
+
+        //GetNumberofNodes test 2: Tree with one node
+        System.out.println("getNumberOfNodes test 2: Tree with one root node");
+        System.out.println("Tree image: \n" + rootTreeString);
+        int expectedNodes2 = 1;
+        int actualNodes2 = rootTree.getNumberOfNodes();
+        System.out.println("Expected number of nodes in this tree: " + expectedNodes2);
+        System.out.println("Actual number of nodes in this tree: " + actualNodes2);
+        assertEquals(expectedNodes2,actualNodes2);
+
+        //GetNumberofNodes test 3: Tree with one node and one left child
+        System.out.println("getNumberOfNodes test 3: Tree with one root node and left child");
+        System.out.println("Tree image: \n" + rootandLeftTreeString);
+        int expectedNodes3 = 2;
+        int actualNodes3 = rootAndRightTree.getNumberOfNodes();
+        System.out.println("Expected number of nodes in this tree: " + expectedNodes3);
+        System.out.println("Actual number of nodes in this tree: " + actualNodes3);
+        assertEquals(expectedNodes3,actualNodes3);
+
+        //GetNumberofNodes test 4: Tree with one node and one right child
+        System.out.println("getNumberOfNodes test 4: Tree with one root node and right child");
+        System.out.println("Tree image: \n" + rootandRightTreeString);
+        int expectedNodes4 = 2;
+        int actualNodes4 = rootAndRightTree.getNumberOfNodes();
+        System.out.println("Expected number of nodes in this tree: " + expectedNodes4);
+        System.out.println("Actual number of nodes in this tree: " + actualNodes4);
+        assertEquals(expectedNodes4,actualNodes4);
+
+        //GetNumberofNodes test 5: Complete tree with height of two
+        System.out.println("getNumberOfNodes test 5: Complete tree with height of two");
+        System.out.println("Tree image: \n" + fullThreeNodeTreeString);
+        int expectedNodes5 = 3;
+        int actualNodes5 = fullThreeNodeTree.getNumberOfNodes();
+        System.out.println("Expected number of nodes in this tree: " + expectedNodes5);
+        System.out.println("Actual number of nodes in this tree: " + actualNodes5);
+        assertEquals(expectedNodes5,actualNodes5);
+
+        //GetNumberofNodes test 6: Complete tree with height of three
+        System.out.println("getNumberOfNodes test 6: Complete tree with height of two");
+        System.out.println("Tree image: \n" + full2RootString);
+        int expectedNodes6 = 7;
+        int actualNodes6 = full2Root.getNumberOfNodes();
+        System.out.println("Expected number of nodes in this tree: " + expectedNodes6);
+        System.out.println("Actual number of nodes in this tree: " + actualNodes6);
+        assertEquals(expectedNodes6,actualNodes6);
+
+        //GetNumberofNodes test 7: Tree with only right children
+        System.out.println("getNumberOfNodes test 7: Complete tree with height of two");
+        System.out.println("Tree image: \n" + rightTreeString);
+        int expectedNodes7 = 4;
+        int actualNodes7 = rightTree.getNumberOfNodes();
+        System.out.println("Expected number of nodes in this tree: " + expectedNodes7);
+        System.out.println("Actual number of nodes in this tree: " + actualNodes7);
+        assertEquals(expectedNodes7,actualNodes7);
+
+        //GetNumberofNodes test 8: Tree with only left children
+        System.out.println("getNumberOfNodes test 8: Complete tree with height of two");
+        System.out.println("Tree image: \n" + leftTreeString);
+        int expectedNodes8 = 4;
+        int actualNodes8 = leftTree.getNumberOfNodes();
+        System.out.println("Expected number of nodes in this tree: " + expectedNodes8);
+        System.out.println("Actual number of nodes in this tree: " + actualNodes8);
+        assertEquals(expectedNodes8,actualNodes8);
+
+
+
+
         
 
     }
