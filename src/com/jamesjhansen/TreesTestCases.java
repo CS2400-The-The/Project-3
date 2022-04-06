@@ -210,7 +210,7 @@ class TreesTestCases {
         //GetHeight Test 6: Tree with Only Left Children
         System.out.println("postOrderTraverse Test 6 (BinaryTree): Tree with Only Left Children");
         System.out.println("Tree:");
-        System.out.println(leftTreeString);
+        System.out.println(completeTreeString);
         String expected6 = "DCBA";
         String actual6 = leftTree.postorderTraverseP();
         System.out.println("Expected: " + expected6);
@@ -284,9 +284,8 @@ class TreesTestCases {
         assertTrue(expected5 == actual5);
         System.out.println();
 
-        
         //GetHeight Test 6: Empty Tree
-        System.out.println("GetHeight Test 5 (BinaryTree): Full Tree with Height of 4");
+        System.out.println("GetHeight Test 6 (BinaryTree): Full Tree with Height of 4");
         System.out.println("Tree:");
         System.out.println(emptyTreeString);
         int expected6 = 0;
@@ -294,6 +293,28 @@ class TreesTestCases {
         System.out.println("Expected: " + expected6);
         System.out.println("Actual: " + actual6);
         assertTrue(expected6 == actual6);
+        System.out.println();
+
+        //GetHeight Test 7: Complete, but not Full Tree
+        System.out.println("GetHeight Test 7 (BinaryTree): Complete, but not Full Tree");
+        System.out.println("Tree:");
+        System.out.println(completeTreeString);
+        int expected7 = 4;
+        int actual7 = completeTree.getHeight();
+        System.out.println("Expected: " + expected7);
+        System.out.println("Actual: " + actual7);
+        assertTrue(expected7 == actual7);
+        System.out.println();
+
+        //GetHeight Test 8: Incomplete Tree
+        System.out.println("GetHeight Test 7 (BinaryTree): Incomplete Tree");
+        System.out.println("Tree:");
+        System.out.println(uncompleteRootString);
+        int expected8 = 3;
+        int actual8 = uncompleteRoot.getHeight();
+        System.out.println("Expected: " + expected8);
+        System.out.println("Actual: " + actual8);
+        assertTrue(expected8 == actual8);
         System.out.println();
     
     } //end testGetHeight
@@ -367,6 +388,28 @@ class TreesTestCases {
         assertTrue(expected6 == actual6);
         System.out.println();
 
+        //GetHeight Test 7: Complete, but not Full Tree
+        System.out.println("GetHeight Test 7 (BinaryTree): Complete, but not Full Tree");
+        System.out.println("Tree:");
+        System.out.println(completeTreeString);
+        int expected7 = 4;
+        int actual7 = completeTree.getHeight_callBinaryNodeMethod();
+        System.out.println("Expected: " + expected7);
+        System.out.println("Actual: " + actual7);
+        assertTrue(expected7 == actual7);
+        System.out.println();
+
+        //GetHeight Test 8: Incomplete Tree
+        System.out.println("GetHeight Test 7 (BinaryTree): Incomplete Tree");
+        System.out.println("Tree:");
+        System.out.println(uncompleteRootString);
+        int expected8 = 3;
+        int actual8 = uncompleteRoot.getHeight_callBinaryNodeMethod();
+        System.out.println("Expected: " + expected8);
+        System.out.println("Actual: " + actual8);
+        assertTrue(expected8 == actual8);
+        System.out.println();
+        
     } //end testGetHeight_callBinaryNodeMethod
 
     @Test 
