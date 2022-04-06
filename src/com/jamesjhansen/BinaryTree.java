@@ -165,43 +165,61 @@ public class BinaryTree<T> implements BinaryTreeInterface<T>
    /** calls postorderTraverse(BinaryNode<T> node)
     * prints (using post-order traversal) all nodes in the "whole" tree */
 
-   public String postorderTraverse()
+   public void postorderTraverse()
    {
-
       if (root == null)
          throw new EmptyTreeException();
 
-      return postorderTraverse(root);
-      
+      postorderTraverse(root);
    }
-   
 
-   
+   protected String postorderTraverseP()
+   {
+      if (root == null)
+         throw new EmptyTreeException();
+
+      return postorderTraverseP(root);
+   }
+
    
    /** A Recursive Method in the BinaryTree Class   
     * prints (using post-order traversal) all nodes in the subtree rooted at this node.*/
-   private String postorderTraverse(BinaryNode<T> node)
+   private void postorderTraverse(BinaryNode<T> node)
    {
+      if (node.hasLeftChild())
+         postorderTraverse(node.getLeftChild());
+
+      if (node.hasRightChild())
+         postorderTraverse(node.getRightChild());
+
+      System.out.println(node.getData());
+   }
+ 
+   protected String postorderTraverseP(BinaryNode<T> node) {
       String left = "";
       String right = "";
       if (node.hasLeftChild())
-         left = postorderTraverse(node.getLeftChild());
+         left = postorderTraverseP(node.getLeftChild());
 
       if (node.hasRightChild())
-         right = postorderTraverse(node.getRightChild());
+         right = postorderTraverseP(node.getRightChild());
 
       return left + right + node.getData();
    }
- 
+
    /** The following calls postorderTraverse_binaryNodeMethod(), which is a recursive binaryNode class method   
     * prints (using post-order traversal) all nodes in the "whole" tree */
    public void postorderTraverse_callBinaryNodeMethod()
    {
       if (root == null)
          throw new EmptyTreeException();
-      root.getLeftChild().postorderTraverse_binaryNodeMethod();
-      root.getRightChild().postorderTraverse_binaryNodeMethod();
-      System.out.println(root.getData());
+      root.postorderTraverse_binaryNodeMethod();
+   }
+
+   protected String postorderTraverse_callBinaryNodeMethodP() {
+      if (root == null)
+         throw new EmptyTreeException();
+      return root.postorderTraverse_binaryNodeMethodP();
    }
    
    /** -------------------------------------------------------------------- */
@@ -235,7 +253,10 @@ public class BinaryTree<T> implements BinaryTreeInterface<T>
    @return  The height of the "whole" tree. */
    public int getHeight_callBinaryNodeMethod()
    {
-	   return root.getHeight_binaryNodeMethod();
+      int height = 0;
+	   if (root != null)
+		   height = root.getHeight_binaryNodeMethod();
+	   return height;
    } // end getHeight_callBinaryNodeMethod
 
    /** -------------------------------------------------------------------- */
