@@ -18,11 +18,9 @@ import static org.junit.jupiter.api.Assertions.*;
  * 9. Complete, but not full tree
  * 10. Full tree, height four, 
  */
-public class TreesTestCases extends BinaryTree{
+class TreesTestCases {
 
-    //Creation of trees
-
-    //Emptytree
+    //Empty tree
     BinaryTree<String> emptyTree = new BinaryTree<>();
     static String emptyTreeString = "";
 
@@ -33,14 +31,14 @@ public class TreesTestCases extends BinaryTree{
     //Tree with root and left child
     BinaryTree<String> rootAndLeftLeaf = new BinaryTree<>("B",null,null);
     BinaryTree<String> rootAndLeftTree = new BinaryTree<>("A",rootAndLeftLeaf,null);
-    static String rootandLeftTreeString = "     A     \n" +
+    String rootandLeftTreeString = "     A     \n" +
                                           "   /       \n" +
                                           "  B        ";
 
     //Tree with root and right child
     BinaryTree<String> rootAndRightLeaf = new BinaryTree<>("B",null,null);
     BinaryTree<String> rootAndRightTree = new BinaryTree<>("A",null,rootAndRightLeaf);
-    static String rootandRightTreeString ="     A      \n" +
+    String rootandRightTreeString ="     A      \n" +
                                           "      \\    \n" +
                                           "       B     ";  
     
@@ -48,7 +46,7 @@ public class TreesTestCases extends BinaryTree{
     BinaryTree<String> fullThreeNodeLeft = new BinaryTree<>("B",null,null);
     BinaryTree<String> fullThreeNodeRight = new BinaryTree<>("C",null,null);
     BinaryTree<String> fullThreeNodeTree = new BinaryTree<>("A", fullThreeNodeLeft,fullThreeNodeRight);
-    static String fullThreeNodeTreeString = "       A       \n" +
+    String fullThreeNodeTreeString = "       A       \n" +
                                             "     /   \\    \n" +
                                             "    B     C     "; 
  
@@ -151,7 +149,7 @@ public class TreesTestCases extends BinaryTree{
 
     }
 
-    @Test 
+    @Test
     void testGetHeight(){
 
         //GetHeight Test 1: Single Node Tree
@@ -220,12 +218,78 @@ public class TreesTestCases extends BinaryTree{
         assertTrue(expected6 == actual6);
         System.out.println();
     
-    }
+    } //end testGetHeight
 
     @Test 
-    void testGetHeight_callBinaryNodeMethod(){
+    void testGetHeight_callBinaryNodeMethod() {
 
-    }
+        //GetHeight_callBinaryNodeMethod Test 1: Single Node Tree
+        System.out.println("GetHeight Test 1 (BinaryNode): Single Node Tree");
+        System.out.println("Tree:");
+        System.out.println(rootTreeString);
+        int expected1 = 1;
+        int actual1 = rootTree.getHeight_callBinaryNodeMethod();
+        System.out.println("Expected: " + expected1);
+        System.out.println("Actual: " + actual1);
+        assertTrue(expected1 == actual1);
+        System.out.println();
+
+        //GetHeight_callBinaryNodeMethod Test 2: Tree with Root and Left Child
+        System.out.println("GetHeight Test 2 (BinaryNode): Tree with Root and Left Child");
+        System.out.println("Tree:");
+        System.out.println(rootandLeftTreeString);
+        int expected2 = 2;
+        int actual2 = rootAndLeftTree.getHeight_callBinaryNodeMethod();
+        System.out.println("Expected: " + expected2);
+        System.out.println("Actual: " + actual2);
+        assertTrue(expected2 == actual2);
+        System.out.println();
+
+        //GetHeight_callBinaryNodeMethod Test 3: Tree with Root and Right Child
+        System.out.println("GetHeight Test 3 (BinaryNode): Tree with Root and Right Child");
+        System.out.println("Tree:");
+        System.out.println(rootandRightTreeString);
+        int expected3 = 2;
+        int actual3 = rootAndRightTree.getHeight_callBinaryNodeMethod();
+        System.out.println("Expected: " + expected3);
+        System.out.println("Actual: " + actual3);
+        assertTrue(expected3 == actual3);
+        System.out.println();
+
+        //GetHeight_callBinaryNodeMethod Test 4: Full Tree with Height of 2
+        System.out.println("GetHeight Test 4 (BinaryNode): Full Tree with Height of 2");
+        System.out.println("Tree:");
+        System.out.println(fullThreeNodeTreeString);
+        int expected4 = 2;
+        int actual4 = fullThreeNodeTree.getHeight_callBinaryNodeMethod();
+        System.out.println("Expected: " + expected4);
+        System.out.println("Actual: " + actual4);
+        assertTrue(expected4 == actual4);
+        System.out.println();
+
+        //GetHeight_callBinaryNodeMethod Test 5: Full Tree with Height of 3
+        System.out.println("GetHeight Test 5 (BinaryNode): Full Tree with Height of 3");
+        System.out.println("Tree:");
+        System.out.println(full2RootString);
+        int expected5 = 3;
+        int actual5 = full2Root.getHeight_callBinaryNodeMethod();
+        System.out.println("Expected: " + expected5);
+        System.out.println("Actual: " + actual5);
+        assertTrue(expected5 == actual5);
+        System.out.println();
+
+        //GetHeight_callBinaryNodeMethod Test 6: Empty Tree
+        System.out.println("GetHeight Test 5 (BinaryNode): Full Tree with Height of 4");
+        System.out.println("Tree:");
+        System.out.println(emptyTreeString);
+        int expected6 = 0;
+        int actual6 = emptyTree.getHeight_callBinaryNodeMethod();
+        System.out.println("Expected: " + expected6);
+        System.out.println("Actual: " + actual6);
+        assertTrue(expected6 == actual6);
+        System.out.println();
+
+    } //end testGetHeight_callBinaryNodeMethod
 
     @Test 
     void testGetNumberOfNodes() {
