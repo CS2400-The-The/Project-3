@@ -6,8 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * Current test case ideas:
  * 
- * for post order:
- * 1. Empty Tree
+ * 1. Empty Tree 
  * 2. Tree with one node (root)
  * 3. Tree with two nodes, root and left
  * 4. Tree with two nodes, root and right
@@ -17,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * 8. Tree with only node and left children
  * 9. Complete, but not full tree
  * 10. Full tree, height four, 
+ * 11. Noncomplete tree
  * Tests methods from tasks 1-4
  */
 class TreesTestCases {
@@ -119,13 +119,13 @@ class TreesTestCases {
     BinaryTree<String> fullChildJ = new BinaryTree<>("J", null, null);
     BinaryTree<String> fullChildI = new BinaryTree<>("I", null, null);
     BinaryTree<String> fullChildH = new BinaryTree<>("H", null, null);
-    BinaryTree<String> fullChildG = new BinaryTree<>("G", null, null);
-    BinaryTree<String> fullChildF = new BinaryTree<>("F", null, null);
-    BinaryTree<String> fullChildE = new BinaryTree<>("E", null, null);
-    BinaryTree<String> fullChildD = new BinaryTree<>("D", null, null);
-    BinaryTree<String> fullChildC = new BinaryTree<>("C", null, null);
-    BinaryTree<String> fullChildB = new BinaryTree<>("B", null, null);
-    BinaryTree<String> fullChild = new BinaryTree<>("A", null, null);
+    BinaryTree<String> fullChildG = new BinaryTree<>("G", fullChildN, fullChildO);
+    BinaryTree<String> fullChildF = new BinaryTree<>("F", fullChildL, fullChildM);
+    BinaryTree<String> fullChildE = new BinaryTree<>("E", fullChildJ, fullChildK);
+    BinaryTree<String> fullChildD = new BinaryTree<>("D", fullChildH, fullChildI);
+    BinaryTree<String> fullChildC = new BinaryTree<>("C", fullChildF, fullChildG);
+    BinaryTree<String> fullChildB = new BinaryTree<>("B", fullChildD, fullChildE);
+    BinaryTree<String> fullChild = new BinaryTree<>("A", fullChildB, fullChildC);
     static String fullChildString = "               A             \n" +
                                     "           /       \\        \n" +
                                     "          B         C        \n" +
@@ -133,6 +133,18 @@ class TreesTestCases {
                                     "        D    E     F    G     \n" +
                                     "       /\\   /\\    /\\   /\\\n" +
                                     "      H  I  J K  L  M  N  O      ";
+    
+    //Not complete tree
+    static BinaryTree<String> uncompleteLeaf4 = new BinaryTree<>("F", null, null);
+    static BinaryTree<String> uncompleteLeaf3 = new BinaryTree<>("E", null, null);
+    static BinaryTree<String> uncompleteLeaf2 = new BinaryTree<>("C", uncompleteLeaf4, null);
+    static BinaryTree<String> uncompleteLeaf1 = new BinaryTree<>("B", null, uncompleteLeaf3);
+    static BinaryTree<String> uncompleteRoot = new BinaryTree<>("A", uncompleteLeaf1, uncompleteLeaf2);
+    static String uncompleteRootString = "      A       \n" +
+                                         "    /   \\    \n" +
+                                         "   B     C    \n" +
+                                         "    \\  /     \n" +
+                                         "     E  F       ";
 
                                 
 
@@ -432,36 +444,139 @@ class TreesTestCases {
         System.out.println("Actual number of nodes in this tree: " + actualNodes8);
         assertEquals(expectedNodes8,actualNodes8);
 
+        //GetNumberofNodes test 9: Complete, but no full tree
+        System.out.println("getNumberOfNodes test 9: Complete, but not full tree");
+        System.out.println("Tree image: \n" + completeTreeString);
+        int expectedNodes9 = 10;
+        int actualNodes9 = completeTree.getNumberOfNodes();
+        System.out.println("Expected number of nodes in this tree: " + expectedNodes9);
+        System.out.println("Actual number of nodes in this tree: " + actualNodes9);
+        assertEquals(expectedNodes9,actualNodes9);
 
+        //GetNumberofNodes test 10: Full tree, height 4
+        System.out.println("getNumberOfNodes test 10: Full tree height 4");
+        System.out.println("Tree image: \n" + fullChildString);
+        int expectedNodes10 = 15;
+        int actualNodes10 = fullChild.getNumberOfNodes();
+        System.out.println("Expected number of nodes in this tree: " + expectedNodes10);
+        System.out.println("Actual number of nodes in this tree: " + actualNodes10);
+        assertEquals(expectedNodes10,actualNodes10);
 
+        //GetNumberofNodes test 11: Uncomplete tree
+        System.out.println("getNumberOfNodes test 11: Uncomplete tree ");
+        System.out.println("Tree image: \n" + uncompleteRootString);
+        int expectedNodes11 = 5;
+        int actualNodes11 = uncompleteRoot.getNumberOfNodes();
+        System.out.println("Expected number of nodes in this tree: " + expectedNodes11);
+        System.out.println("Actual number of nodes in this tree: " + actualNodes11);
+        assertEquals(expectedNodes11,actualNodes11);
+        
 
         
-        //GetNumberOfNodes Test 1: Single Node Tree
-        System.out.println("getNumberOfNodes Test 1 (BinaryTree): Single Node Tree");
-        System.out.println("Tree:");
-        System.out.println(rootTreeString);
-        int expected1 = 1;
-        int actual1 = rootTree.getNumberOfNodes();
-        System.out.println("Expected: " + expected1);
-        System.out.println("Actual: " + actual1);
-        assertTrue(expected1 == actual1);
-        System.out.println();
-
-        //GetNumberOfNodes Test 2: Single Node Tree
-        System.out.println("getNumberOfNodes Test 2 (BinaryTree): Tree with Root and Left Child");
-        System.out.println("Tree:");
-        System.out.println(rootandLeftTreeString);
-        int expected2 = 2;
-        int actual2 = rootAndLeftTree.getNumberOfNodes();
-        System.out.println("Expected: " + expected2);
-        System.out.println("Actual: " + actual2);
-        assertTrue(expected2 == actual2);
-        System.out.println();
 
     }
 
     @Test 
     void testGetNumberOfNodes_callBinaryNodeMethod() {
+
+        //GetNumberofNodes test 1: Empty Tree
+        System.out.println("getNumberOfNodes test 1: Empty Tree");
+        System.out.println("Tree image: \n" + emptyTreeString);
+        int expectedNodes1 = 0;
+        int actualNodes1 = emptyTree.getNumberOfNodes_callBinaryNodeMethod();
+        System.out.println("Expected number of nodes in this tree: " + expectedNodes1);
+        System.out.println("Actual number of nodes in this tree: " + actualNodes1);
+        assertEquals(expectedNodes1,actualNodes1);
+
+        //GetNumberofNodes test 2: Tree with one node
+        System.out.println("getNumberOfNodes test 2: Tree with one root node");
+        System.out.println("Tree image: \n" + rootTreeString);
+        int expectedNodes2 = 1;
+        int actualNodes2 = rootTree.getNumberOfNodes_callBinaryNodeMethod();
+        System.out.println("Expected number of nodes in this tree: " + expectedNodes2);
+        System.out.println("Actual number of nodes in this tree: " + actualNodes2);
+        assertEquals(expectedNodes2,actualNodes2);
+
+        //GetNumberofNodes test 3: Tree with one node and one left child
+        System.out.println("getNumberOfNodes test 3: Tree with one root node and left child");
+        System.out.println("Tree image: \n" + rootandLeftTreeString);
+        int expectedNodes3 = 2;
+        int actualNodes3 = rootAndRightTree.getNumberOfNodes_callBinaryNodeMethod();
+        System.out.println("Expected number of nodes in this tree: " + expectedNodes3);
+        System.out.println("Actual number of nodes in this tree: " + actualNodes3);
+        assertEquals(expectedNodes3,actualNodes3);
+
+        //GetNumberofNodes test 4: Tree with one node and one right child
+        System.out.println("getNumberOfNodes test 4: Tree with one root node and right child");
+        System.out.println("Tree image: \n" + rootandRightTreeString);
+        int expectedNodes4 = 2;
+        int actualNodes4 = rootAndRightTree.getNumberOfNodes_callBinaryNodeMethod();
+        System.out.println("Expected number of nodes in this tree: " + expectedNodes4);
+        System.out.println("Actual number of nodes in this tree: " + actualNodes4);
+        assertEquals(expectedNodes4,actualNodes4);
+
+        //GetNumberofNodes test 5: Complete tree with height of two
+        System.out.println("getNumberOfNodes test 5: Complete tree with height of two");
+        System.out.println("Tree image: \n" + fullThreeNodeTreeString);
+        int expectedNodes5 = 3;
+        int actualNodes5 = fullThreeNodeTree.getNumberOfNodes_callBinaryNodeMethod();
+        System.out.println("Expected number of nodes in this tree: " + expectedNodes5);
+        System.out.println("Actual number of nodes in this tree: " + actualNodes5);
+        assertEquals(expectedNodes5,actualNodes5);
+
+        //GetNumberofNodes test 6: Complete tree with height of three
+        System.out.println("getNumberOfNodes test 6: Complete tree with height of two");
+        System.out.println("Tree image: \n" + full2RootString);
+        int expectedNodes6 = 7;
+        int actualNodes6 = full2Root.getNumberOfNodes_callBinaryNodeMethod();
+        System.out.println("Expected number of nodes in this tree: " + expectedNodes6);
+        System.out.println("Actual number of nodes in this tree: " + actualNodes6);
+        assertEquals(expectedNodes6,actualNodes6);
+
+        //GetNumberofNodes test 7: Tree with only right children
+        System.out.println("getNumberOfNodes test 7: Complete tree with height of two");
+        System.out.println("Tree image: \n" + rightTreeString);
+        int expectedNodes7 = 4;
+        int actualNodes7 = rightTree.getNumberOfNodes_callBinaryNodeMethod();
+        System.out.println("Expected number of nodes in this tree: " + expectedNodes7);
+        System.out.println("Actual number of nodes in this tree: " + actualNodes7);
+        assertEquals(expectedNodes7,actualNodes7);
+
+        //GetNumberofNodes test 8: Tree with only left children
+        System.out.println("getNumberOfNodes test 8: Complete tree with height of two");
+        System.out.println("Tree image: \n" + leftTreeString);
+        int expectedNodes8 = 4;
+        int actualNodes8 = leftTree.getNumberOfNodes_callBinaryNodeMethod();
+        System.out.println("Expected number of nodes in this tree: " + expectedNodes8);
+        System.out.println("Actual number of nodes in this tree: " + actualNodes8);
+        assertEquals(expectedNodes8,actualNodes8);
+
+        //GetNumberofNodes test 9: Complete, but no full tree
+        System.out.println("getNumberOfNodes test 9: Complete, but not full tree");
+        System.out.println("Tree image: \n" + completeTreeString);
+        int expectedNodes9 = 10;
+        int actualNodes9 = completeTree.getNumberOfNodes_callBinaryNodeMethod();
+        System.out.println("Expected number of nodes in this tree: " + expectedNodes9);
+        System.out.println("Actual number of nodes in this tree: " + actualNodes9);
+        assertEquals(expectedNodes9,actualNodes9);
+
+        //GetNumberofNodes test 10: Full tree, height 4
+        System.out.println("getNumberOfNodes test 10: Full tree height 4");
+        System.out.println("Tree image: \n" + fullChildString);
+        int expectedNodes10 = 15;
+        int actualNodes10 = fullChild.getNumberOfNodes_callBinaryNodeMethod();
+        System.out.println("Expected number of nodes in this tree: " + expectedNodes10);
+        System.out.println("Actual number of nodes in this tree: " + actualNodes10);
+        assertEquals(expectedNodes10,actualNodes10);
+
+        //GetNumberofNodes test 11: Uncomplete tree
+        System.out.println("getNumberOfNodes test 11: Uncomplete tree ");
+        System.out.println("Tree image: \n" + uncompleteRootString);
+        int expectedNodes11 = 5;
+        int actualNodes11 = uncompleteRoot.getNumberOfNodes_callBinaryNodeMethod();
+        System.out.println("Expected number of nodes in this tree: " + expectedNodes11);
+        System.out.println("Actual number of nodes in this tree: " + actualNodes11);
+        assertEquals(expectedNodes11,actualNodes11);
 
     }
 
