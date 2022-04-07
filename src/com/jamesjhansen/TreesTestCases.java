@@ -135,14 +135,12 @@ class TreesTestCases {
     @Test
     void testPostOrderTraverse(){
         //GetPostOrder Test 1: Empty Tree
-        System.out.println("postOrderTraverse Test 1: Empty Tree");
+        System.out.println("postOrderTraverse Test 1 (BinaryTree): Empty Tree");
         System.out.println("Tree:");
         System.out.println(emptyTreeString);
-        String expected1 = "";
-        //String actual1 = emptyTree.postorderTraverseP();
-        System.out.println("Expected: " + expected1);
-        //System.out.println("Actual: " + actual1);
-        //assertEquals(expected1 , actual1);
+        var actual1 = assertThrows(EmptyTreeException.class, () -> {emptyTree.postorderTraverseP();});
+        System.out.println("Expected: Method throws an EmptyTreeException");
+        System.out.println("Result: " + actual1);
         System.out.println();
         
         //GetPostOrder Test 2: Single Node Tree
@@ -237,18 +235,16 @@ class TreesTestCases {
     @Test
     void testPostOrderTraverse_callbinaryNodeMethod(){
         //GetPostOrder Test 1: Empty Tree
-        System.out.println("postOrderTraverse Test 1: Empty Tree");
+        System.out.println("postOrderTraverse Test 1 (BinaryNode): Empty Tree");
         System.out.println("Tree:");
         System.out.println(emptyTreeString);
-        String expected1 = "";
-        //String actual1 = emptyTree.postorderTraverseP();
-        System.out.println("Expected: " + expected1);
-        //System.out.println("Actual: " + actual1);
-        //assertEquals(expected1 , actual1);
+        var actual1 = assertThrows(EmptyTreeException.class, () -> {emptyTree.postorderTraverse_callBinaryNodeMethodP();});
+        System.out.println("Expected: Method throws an EmptyTreeException");
+        System.out.println("Result: " + actual1);
         System.out.println();
         
         //GetPostOrder Test 2: Single Node Tree
-        System.out.println("postOrderTraverse Test 2 (BinaryTree): Single Node Tree");
+        System.out.println("postOrderTraverse Test 2 (BinaryNode): Single Node Tree");
         System.out.println("Tree:");
         System.out.println(rootTreeString);
         String expected2 = "A";
@@ -259,7 +255,7 @@ class TreesTestCases {
         System.out.println();
 
         //GetPostOrder Test 3: Tree with a Root and Left Tree
-        System.out.println("postOrderTraverse Test 3 (BinaryTree): Tree with a Root and Left Tree");
+        System.out.println("postOrderTraverse Test 3 (BinaryNode): Tree with a Root and Left Tree");
         System.out.println("Tree:");
         System.out.println(rootandLeftTreeString);
         String expected3 = "BA";
@@ -270,7 +266,7 @@ class TreesTestCases {
         System.out.println();
 
         //GetPostOrder Test 4: Full Tree, Height of Two
-        System.out.println("postOrderTraverse Test 4 (BinaryTree): Full Tree, Height of Two");
+        System.out.println("postOrderTraverse Test 4 (BinaryNode): Full Tree, Height of Two");
         System.out.println("Tree:");
         System.out.println(fullThreeNodeTreeString);
         String expected4 = "BCA";
@@ -281,7 +277,7 @@ class TreesTestCases {
         System.out.println();
 
         //GetPostOrder Test 5: Tree with Only Right Children
-        System.out.println("postOrderTraverse Test 5 (BinaryTree): Tree with Only Right Children");
+        System.out.println("postOrderTraverse Test 5 (BinaryNode): Tree with Only Right Children");
         System.out.println("Tree:");
         System.out.println(rightTreeString);
         String expected5 = "DCBA";
@@ -292,7 +288,7 @@ class TreesTestCases {
         System.out.println();
 
         //GetPostOrder Test 6: Tree with Only Left Children
-        System.out.println("postOrderTraverse Test 6 (BinaryTree): Tree with Only Left Children");
+        System.out.println("postOrderTraverse Test 6 (BinaryNode): Tree with Only Left Children");
         System.out.println("Tree:");
         System.out.println(leftTreeString);
         String expected6 = "DCBA";
@@ -303,7 +299,7 @@ class TreesTestCases {
         System.out.println();
 
         //GetPostOrder Test 7: Complete, but not full tree
-        System.out.println("postOrderTraverse Test 7 (BinaryTree): Complete, but Not Full Tree");
+        System.out.println("postOrderTraverse Test 7 (BinaryNode): Complete, but Not Full Tree");
         System.out.println("Tree:");
         System.out.println(completeTreeString);
         String expected7 = "GHDIJEBFCA";
@@ -314,7 +310,7 @@ class TreesTestCases {
         System.out.println();
 
         //GetPostOrder Test 8: Full tree, height of 4
-        System.out.println("postOrderTraverse Test 8 (BinaryTree): Full Tree, height four");
+        System.out.println("postOrderTraverse Test 8 (BinaryNode): Full Tree, height four");
         System.out.println("Tree:");
         System.out.println(fullChildString);
         String expected8 = "HIDJKEBLMFNOGCA";
@@ -325,7 +321,7 @@ class TreesTestCases {
         System.out.println();
 
         //GetPostOrder Test 9: Uncomplete tree
-        System.out.println("postOrderTraverse Test 9: (BinaryTree): uncomplete Tree");
+        System.out.println("postOrderTraverse Test 9: (BinaryNode): uncomplete Tree");
         System.out.println("Tree:");
         System.out.println(uncompleteRootString);
         String expected9 = "EBFCA";
@@ -497,7 +493,7 @@ class TreesTestCases {
         System.out.println();
 
         //GetHeight Test 7: Complete, but not Full Tree
-        System.out.println("GetHeight Test 7 (BinaryTree): Complete, but not Full Tree");
+        System.out.println("GetHeight Test 7 (BinaryNode): Complete, but not Full Tree");
         System.out.println("Tree:");
         System.out.println(completeTreeString);
         int expected7 = 4;
@@ -508,7 +504,7 @@ class TreesTestCases {
         System.out.println();
 
         //GetHeight Test 8: Incomplete Tree
-        System.out.println("GetHeight Test 7 (BinaryTree): Incomplete Tree");
+        System.out.println("GetHeight Test 7 (BinaryNode): Incomplete Tree");
         System.out.println("Tree:");
         System.out.println(uncompleteRootString);
         int expected8 = 3;
@@ -523,7 +519,7 @@ class TreesTestCases {
     @Test 
     void testGetNumberOfNodes() {
         //GetNumberofNodes test 1: Empty Tree
-        System.out.println("getNumberOfNodes test 1: Empty Tree");
+        System.out.println("getNumberOfNodes Test 1 (BinaryTree): Empty Tree");
         System.out.println("Tree image: \n" + emptyTreeString);
         int expectedNodes1 = 0;
         int actualNodes1 = emptyTree.getNumberOfNodes();
@@ -532,7 +528,7 @@ class TreesTestCases {
         assertEquals(expectedNodes1,actualNodes1);
 
         //GetNumberofNodes test 2: Tree with one node
-        System.out.println("getNumberOfNodes test 2: Tree with one root node");
+        System.out.println("getNumberOfNodes Test 2 (BinaryTree): Tree with one root node");
         System.out.println("Tree image: \n" + rootTreeString);
         int expectedNodes2 = 1;
         int actualNodes2 = rootTree.getNumberOfNodes();
@@ -541,7 +537,7 @@ class TreesTestCases {
         assertEquals(expectedNodes2,actualNodes2);
 
         //GetNumberofNodes test 3: Tree with one node and one left child
-        System.out.println("getNumberOfNodes test 3: Tree with one root node and left child");
+        System.out.println("getNumberOfNodes Test 3 (BinaryTree): Tree with one root node and left child");
         System.out.println("Tree image: \n" + rootandLeftTreeString);
         int expectedNodes3 = 2;
         int actualNodes3 = rootAndRightTree.getNumberOfNodes();
@@ -550,7 +546,7 @@ class TreesTestCases {
         assertEquals(expectedNodes3,actualNodes3);
 
         //GetNumberofNodes test 4: Tree with one node and one right child
-        System.out.println("getNumberOfNodes test 4: Tree with one root node and right child");
+        System.out.println("getNumberOfNodes test 4 (BinaryTree): Tree with one root node and right child");
         System.out.println("Tree image: \n" + rootandRightTreeString);
         int expectedNodes4 = 2;
         int actualNodes4 = rootAndRightTree.getNumberOfNodes();
@@ -559,7 +555,7 @@ class TreesTestCases {
         assertEquals(expectedNodes4,actualNodes4);
 
         //GetNumberofNodes test 5: Complete tree with height of two
-        System.out.println("getNumberOfNodes test 5: Complete tree with height of two");
+        System.out.println("getNumberOfNodes test 5 (BinaryTree): Complete tree with height of two");
         System.out.println("Tree image: \n" + fullThreeNodeTreeString);
         int expectedNodes5 = 3;
         int actualNodes5 = fullThreeNodeTree.getNumberOfNodes();
@@ -568,7 +564,7 @@ class TreesTestCases {
         assertEquals(expectedNodes5,actualNodes5);
 
         //GetNumberofNodes test 6: Complete tree with height of three
-        System.out.println("getNumberOfNodes test 6: Complete tree with height of two");
+        System.out.println("getNumberOfNodes test 6 (BinaryTree): Complete tree with height of two");
         System.out.println("Tree image: \n" + full2RootString);
         int expectedNodes6 = 7;
         int actualNodes6 = full2Root.getNumberOfNodes();
@@ -577,7 +573,7 @@ class TreesTestCases {
         assertEquals(expectedNodes6,actualNodes6);
 
         //GetNumberofNodes test 7: Tree with only right children
-        System.out.println("getNumberOfNodes test 7: Complete tree with height of two");
+        System.out.println("getNumberOfNodes test 7 (BinaryTree): Complete tree with height of two");
         System.out.println("Tree image: \n" + rightTreeString);
         int expectedNodes7 = 4;
         int actualNodes7 = rightTree.getNumberOfNodes();
@@ -586,7 +582,7 @@ class TreesTestCases {
         assertEquals(expectedNodes7,actualNodes7);
 
         //GetNumberofNodes test 8: Tree with only left children
-        System.out.println("getNumberOfNodes test 8: Complete tree with height of two");
+        System.out.println("getNumberOfNodes test 8 (BinaryTree): Complete tree with height of two");
         System.out.println("Tree image: \n" + leftTreeString);
         int expectedNodes8 = 4;
         int actualNodes8 = leftTree.getNumberOfNodes();
@@ -595,7 +591,7 @@ class TreesTestCases {
         assertEquals(expectedNodes8,actualNodes8);
 
         //GetNumberofNodes test 9: Complete, but no full tree
-        System.out.println("getNumberOfNodes test 9: Complete, but not full tree");
+        System.out.println("getNumberOfNodes test 9 (BinaryTree): Complete, but not full tree");
         System.out.println("Tree image: \n" + completeTreeString);
         int expectedNodes9 = 10;
         int actualNodes9 = completeTree.getNumberOfNodes();
@@ -604,7 +600,7 @@ class TreesTestCases {
         assertEquals(expectedNodes9,actualNodes9);
 
         //GetNumberofNodes test 10: Full tree, height 4
-        System.out.println("getNumberOfNodes test 10: Full tree height 4");
+        System.out.println("getNumberOfNodes test 10 (BinaryTree): Full tree height 4");
         System.out.println("Tree image: \n" + fullChildString);
         int expectedNodes10 = 15;
         int actualNodes10 = fullChild.getNumberOfNodes();
@@ -613,7 +609,7 @@ class TreesTestCases {
         assertEquals(expectedNodes10,actualNodes10);
 
         //GetNumberofNodes test 11: Uncomplete tree
-        System.out.println("getNumberOfNodes test 11: Uncomplete tree ");
+        System.out.println("getNumberOfNodes test 11 (BinaryTree): Uncomplete tree ");
         System.out.println("Tree image: \n" + uncompleteRootString);
         int expectedNodes11 = 5;
         int actualNodes11 = uncompleteRoot.getNumberOfNodes();
@@ -625,7 +621,7 @@ class TreesTestCases {
     @Test 
     void testGetNumberOfNodes_callBinaryNodeMethod() {
         //GetNumberofNodes test 1: Empty Tree
-        System.out.println("getNumberOfNodes test 1: Empty Tree");
+        System.out.println("getNumberOfNodes test 1 (BinaryNode): Empty Tree");
         System.out.println("Tree image: \n" + emptyTreeString);
         int expectedNodes1 = 0;
         int actualNodes1 = emptyTree.getNumberOfNodes_callBinaryNodeMethod();
@@ -634,7 +630,7 @@ class TreesTestCases {
         assertEquals(expectedNodes1,actualNodes1);
 
         //GetNumberofNodes test 2: Tree with one node
-        System.out.println("getNumberOfNodes test 2: Tree with one root node");
+        System.out.println("getNumberOfNodes test 2 (BinaryNode): Tree with one root node");
         System.out.println("Tree image: \n" + rootTreeString);
         int expectedNodes2 = 1;
         int actualNodes2 = rootTree.getNumberOfNodes_callBinaryNodeMethod();
@@ -643,7 +639,7 @@ class TreesTestCases {
         assertEquals(expectedNodes2,actualNodes2);
 
         //GetNumberofNodes test 3: Tree with one node and one left child
-        System.out.println("getNumberOfNodes test 3: Tree with one root node and left child");
+        System.out.println("getNumberOfNodes test 3 (BinaryNode): Tree with one root node and left child");
         System.out.println("Tree image: \n" + rootandLeftTreeString);
         int expectedNodes3 = 2;
         int actualNodes3 = rootAndRightTree.getNumberOfNodes_callBinaryNodeMethod();
@@ -652,7 +648,7 @@ class TreesTestCases {
         assertEquals(expectedNodes3,actualNodes3);
 
         //GetNumberofNodes test 4: Tree with one node and one right child
-        System.out.println("getNumberOfNodes test 4: Tree with one root node and right child");
+        System.out.println("getNumberOfNodes test 4 (BinaryNode): Tree with one root node and right child");
         System.out.println("Tree image: \n" + rootandRightTreeString);
         int expectedNodes4 = 2;
         int actualNodes4 = rootAndRightTree.getNumberOfNodes_callBinaryNodeMethod();
@@ -661,7 +657,7 @@ class TreesTestCases {
         assertEquals(expectedNodes4,actualNodes4);
 
         //GetNumberofNodes test 5: Complete tree with height of two
-        System.out.println("getNumberOfNodes test 5: Complete tree with height of two");
+        System.out.println("getNumberOfNodes test 5 (BinaryNode): Complete tree with height of two");
         System.out.println("Tree image: \n" + fullThreeNodeTreeString);
         int expectedNodes5 = 3;
         int actualNodes5 = fullThreeNodeTree.getNumberOfNodes_callBinaryNodeMethod();
@@ -670,7 +666,7 @@ class TreesTestCases {
         assertEquals(expectedNodes5,actualNodes5);
 
         //GetNumberofNodes test 6: Complete tree with height of three
-        System.out.println("getNumberOfNodes test 6: Complete tree with height of two");
+        System.out.println("getNumberOfNodes test 6 (BinaryNode): Complete tree with height of two");
         System.out.println("Tree image: \n" + full2RootString);
         int expectedNodes6 = 7;
         int actualNodes6 = full2Root.getNumberOfNodes_callBinaryNodeMethod();
@@ -679,7 +675,7 @@ class TreesTestCases {
         assertEquals(expectedNodes6,actualNodes6);
 
         //GetNumberofNodes test 7: Tree with only right children
-        System.out.println("getNumberOfNodes test 7: Complete tree with height of two");
+        System.out.println("getNumberOfNodes test 7 (BinaryNode): Complete tree with height of two");
         System.out.println("Tree image: \n" + rightTreeString);
         int expectedNodes7 = 4;
         int actualNodes7 = rightTree.getNumberOfNodes_callBinaryNodeMethod();
@@ -688,7 +684,7 @@ class TreesTestCases {
         assertEquals(expectedNodes7,actualNodes7);
 
         //GetNumberofNodes test 8: Tree with only left children
-        System.out.println("getNumberOfNodes test 8: Complete tree with height of two");
+        System.out.println("getNumberOfNodes test 8 (BinaryNode): Complete tree with height of two");
         System.out.println("Tree image: \n" + leftTreeString);
         int expectedNodes8 = 4;
         int actualNodes8 = leftTree.getNumberOfNodes_callBinaryNodeMethod();
@@ -697,7 +693,7 @@ class TreesTestCases {
         assertEquals(expectedNodes8,actualNodes8);
 
         //GetNumberofNodes test 9: Complete, but no full tree
-        System.out.println("getNumberOfNodes test 9: Complete, but not full tree");
+        System.out.println("getNumberOfNodes test 9 (BinaryNode): Complete, but not full tree");
         System.out.println("Tree image: \n" + completeTreeString);
         int expectedNodes9 = 10;
         int actualNodes9 = completeTree.getNumberOfNodes_callBinaryNodeMethod();
@@ -706,7 +702,7 @@ class TreesTestCases {
         assertEquals(expectedNodes9,actualNodes9);
 
         //GetNumberofNodes test 10: Full tree, height 4
-        System.out.println("getNumberOfNodes test 10: Full tree height 4");
+        System.out.println("getNumberOfNodes test 10 (BinaryNode): Full tree height 4");
         System.out.println("Tree image: \n" + fullChildString);
         int expectedNodes10 = 15;
         int actualNodes10 = fullChild.getNumberOfNodes_callBinaryNodeMethod();
@@ -715,7 +711,7 @@ class TreesTestCases {
         assertEquals(expectedNodes10,actualNodes10);
 
         //GetNumberofNodes test 11: Uncomplete tree
-        System.out.println("getNumberOfNodes test 11: Uncomplete tree ");
+        System.out.println("getNumberOfNodes test 11 (BinaryNode): Uncomplete tree ");
         System.out.println("Tree image: \n" + uncompleteRootString);
         int expectedNodes11 = 5;
         int actualNodes11 = uncompleteRoot.getNumberOfNodes_callBinaryNodeMethod();
